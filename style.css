@@ -1,0 +1,1713 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --orange:#ff6a00;
+    --orange-light:#ff9d00;
+    --red:#ff2b00;
+    --gold:#ffc400;
+    --dark:#080808;
+    --dark2:#111111;
+    --panel:#151515;
+    --panel2:#1d1d1d;
+    --white:#ffffff;
+    --gray:#bdbdbd;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:
+        radial-gradient(circle at top,#2b1205 0%,#0d0d0d 40%,#050505 100%);
+    color:white;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   WEBSITE
+========================= */
+
+#websiteContent{
+    display:none;
+    position:relative;
+    min-height:100vh;
+}
+
+
+/* =========================
+   PASSWORD SCREEN
+========================= */
+
+#passwordScreen{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:9999;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.8)
+        ),
+        url("assets/photos/photo1.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.password-overlay{
+    width:100%;
+    height:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,106,0,.15),
+            transparent 60%
+        );
+
+    backdrop-filter:blur(8px);
+}
+
+
+/* PASSWORD BOX */
+
+.password-box{
+    position:relative;
+
+    width:90%;
+    max-width:420px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(35,35,35,.95),
+            rgba(8,8,8,.96)
+        );
+
+    border:1px solid rgba(255,106,0,.5);
+
+    clip-path:polygon(
+        0 0,
+        96% 0,
+        100% 8%,
+        100% 92%,
+        96% 100%,
+        0 100%,
+        0 8%
+    );
+
+    box-shadow:
+        0 0 25px rgba(255,106,0,.2),
+        inset 0 0 30px rgba(255,106,0,.03);
+}
+
+
+/* ORANGE TOP LINE */
+
+.password-box::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--orange),
+            var(--gold),
+            var(--orange),
+            transparent
+        );
+
+    box-shadow:0 0 15px var(--orange);
+}
+
+
+/* FREE FIRE LOGO */
+
+.ff-logo{
+    font-size:25px;
+
+    font-weight:800;
+
+    letter-spacing:4px;
+
+    color:white;
+
+    text-shadow:
+        0 0 10px rgba(255,106,0,.7);
+
+    margin-bottom:8px;
+}
+
+.mission-label{
+    display:inline-block;
+
+    padding:5px 12px;
+
+    margin-bottom:15px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    background:var(--orange);
+
+    color:white;
+
+    font-weight:700;
+}
+
+.password-box h1{
+    font-size:45px;
+
+    margin-bottom:5px;
+
+    filter:drop-shadow(0 0 12px var(--orange));
+}
+
+.password-box h2{
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:30px;
+
+    letter-spacing:3px;
+
+    margin-bottom:15px;
+}
+
+.password-box p{
+    color:#cfcfcf;
+
+    line-height:1.7;
+
+    font-size:13px;
+}
+
+
+/* PLAYER INFO */
+
+.player-info{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:8px;
+
+    margin:20px 0;
+
+    text-align:left;
+}
+
+.player-info span{
+    color:#777;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+}
+
+.player-info strong{
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:15px;
+
+    color:white;
+}
+
+
+/* PASSWORD INPUT */
+
+.password-box input{
+    width:100%;
+
+    padding:15px;
+
+    border:1px solid #333;
+
+    outline:none;
+
+    background:#080808;
+
+    color:white;
+
+    text-align:center;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:17px;
+
+    letter-spacing:5px;
+
+    transition:.3s;
+}
+
+.password-box input:focus{
+    border-color:var(--orange);
+
+    box-shadow:
+        0 0 15px rgba(255,106,0,.2);
+}
+
+
+/* PASSWORD BUTTON */
+
+.password-box button{
+    width:100%;
+
+    padding:15px;
+
+    margin-top:12px;
+
+    border:none;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--red),
+            var(--orange)
+        );
+
+    color:white;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:
+        0 0 20px rgba(255,106,0,.2);
+}
+
+.password-box button:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 0 30px rgba(255,106,0,.45);
+}
+
+.hint{
+    margin-top:15px;
+
+    font-size:11px !important;
+
+    color:#777 !important;
+}
+
+
+/* =========================
+   GAME HUD
+========================= */
+
+.game-hud{
+    position:fixed;
+
+    top:20px;
+    left:20px;
+    right:20px;
+
+    z-index:100;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    pointer-events:none;
+}
+
+
+/* PLAYER */
+
+.hud-player{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:rgba(0,0,0,.7);
+
+    padding:8px 15px 8px 8px;
+
+    border-left:3px solid var(--orange);
+
+    backdrop-filter:blur(8px);
+}
+
+.avatar{
+    width:38px;
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--orange),
+            var(--red)
+        );
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:20px;
+
+    font-weight:700;
+}
+
+.hud-player span{
+    display:block;
+
+    color:#777;
+
+    font-size:8px;
+
+    letter-spacing:1px;
+}
+
+.hud-player strong{
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:15px;
+}
+
+
+/* HP BAR */
+
+.hp-bar{
+    width:100px;
+
+    height:5px;
+
+    margin-top:4px;
+
+    background:#333;
+}
+
+.hp-fill{
+    width:100%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff2b00,
+            #ff8c00
+        );
+
+    box-shadow:
+        0 0 8px var(--orange);
+}
+
+
+/* HUD STATS */
+
+.hud-stats{
+    display:flex;
+
+    gap:8px;
+}
+
+.hud-stats div{
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    padding:8px 12px;
+
+    background:rgba(0,0,0,.7);
+
+    border-bottom:2px solid var(--orange);
+
+    backdrop-filter:blur(8px);
+
+    font-size:13px;
+}
+
+.hud-stats span{
+    color:#777;
+
+    font-size:7px;
+
+    margin-right:3px;
+}
+
+.hud-stats strong{
+    color:var(--gold);
+
+    font-family:'Rajdhani',sans-serif;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:120px 20px 60px;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,106,0,.18),
+            transparent 45%
+        );
+}
+
+
+/* HERO GRID */
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:50px 50px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent
+        );
+
+    pointer-events:none;
+}
+
+.hero-overlay{
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 50%,
+            #080808 100%
+        );
+
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+
+    z-index:2;
+
+    max-width:850px;
+}
+
+
+/* MISSION TAG */
+
+.mission-tag{
+    display:inline-block;
+
+    padding:7px 18px;
+
+    margin-bottom:20px;
+
+    border:1px solid var(--orange);
+
+    background:rgba(255,106,0,.08);
+
+    color:var(--orange-light);
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    font-size:12px;
+
+    box-shadow:
+        0 0 15px rgba(255,106,0,.1);
+}
+
+.small-title{
+    color:#777;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:13px;
+
+    letter-spacing:4px;
+
+    margin-bottom:10px;
+}
+
+
+/* HERO TITLE */
+
+.hero h1{
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:90px;
+
+    line-height:.85;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    text-shadow:
+        4px 4px 0 #000,
+        0 0 30px rgba(255,106,0,.3);
+}
+
+.hero h1 span{
+    display:block;
+
+    color:var(--orange);
+
+    text-shadow:
+        3px 3px 0 #000,
+        0 0 30px rgba(255,106,0,.6);
+}
+
+.hero h2{
+    margin-top:25px;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:38px;
+
+    letter-spacing:5px;
+
+    color:white;
+}
+
+.hero-text{
+    max-width:600px;
+
+    margin:25px auto 30px;
+
+    color:#aaa;
+
+    line-height:1.8;
+
+    font-size:14px;
+}
+
+
+/* START BUTTON */
+
+.start-button{
+    position:relative;
+
+    padding:16px 45px;
+
+    border:none;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--red),
+            var(--orange)
+        );
+
+    color:white;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    clip-path:polygon(
+        7% 0,
+        100% 0,
+        93% 100%,
+        0 100%
+    );
+
+    transition:.3s;
+
+    box-shadow:
+        0 0 20px rgba(255,106,0,.25);
+}
+
+.start-button:hover{
+    transform:scale(1.05);
+
+    box-shadow:
+        0 0 35px rgba(255,106,0,.55);
+}
+
+
+/* MISSION STATUS */
+
+.mission-status{
+    margin:30px auto 0;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    align-items:center;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:11px;
+}
+
+.mission-status span{
+    color:#666;
+
+    letter-spacing:2px;
+}
+
+.mission-status strong{
+    color:#ffb000;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section{
+    position:relative;
+
+    padding:100px 20px;
+
+    text-align:center;
+
+    max-width:1400px;
+
+    margin:auto;
+}
+
+.section-heading{
+    margin-bottom:50px;
+}
+
+.section-heading > span{
+    color:var(--orange);
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+}
+
+.section-heading h2{
+    margin-top:8px;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:42px;
+
+    letter-spacing:2px;
+}
+
+.section-heading p{
+    color:#777;
+
+    margin-top:5px;
+
+    font-size:13px;
+}
+
+
+/* =========================
+   MISSION CARD
+========================= */
+
+.mission-card{
+    position:relative;
+
+    max-width:850px;
+
+    margin:auto;
+
+    padding:45px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1b1b1b,
+            #0d0d0d
+        );
+
+    border:1px solid #292929;
+
+    border-left:4px solid var(--orange);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.4);
+}
+
+.card-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    padding-bottom:15px;
+
+    border-bottom:1px solid #292929;
+
+    color:#666;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+}
+
+.card-header span:last-child{
+    color:#ff9d00;
+}
+
+.mission-icon{
+    font-size:50px;
+
+    margin:25px 0 10px;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(255,106,0,.5)
+        );
+}
+
+.mission-card h2{
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:35px;
+
+    letter-spacing:3px;
+
+    margin-bottom:20px;
+}
+
+.mission-card p{
+    max-width:650px;
+
+    margin:auto;
+
+    color:#aaa;
+
+    line-height:2;
+
+    font-size:14px;
+}
+
+.mission-card strong{
+    color:#ff9d00;
+}
+
+.mission-reward{
+    margin-top:30px;
+
+    padding:15px;
+
+    background:#080808;
+
+    border:1px solid #292929;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+}
+
+.mission-reward span{
+    color:#666;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+}
+
+.mission-reward strong{
+    font-family:'Rajdhani',sans-serif;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================
+   PHOTO INVENTORY
+========================= */
+
+.photo-grid{
+    max-width:1150px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+.photo-card{
+    position:relative;
+
+    padding:6px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #292929,
+            #101010
+        );
+
+    border:1px solid #333;
+
+    transition:.35s;
+
+    overflow:hidden;
+}
+
+.photo-card::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 50%,
+            rgba(255,106,0,.08)
+        );
+
+    pointer-events:none;
+}
+
+.photo-card:hover{
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    border-color:var(--orange);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.5),
+        0 0 20px rgba(255,106,0,.15);
+}
+
+.photo-card img{
+    width:100%;
+
+    height:270px;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.item-number{
+    position:absolute;
+
+    top:12px;
+    left:12px;
+
+    z-index:2;
+
+    padding:4px 8px;
+
+    background:rgba(0,0,0,.8);
+
+    color:#ff9d00;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+.photo-info{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:10px 6px 5px;
+
+    text-align:left;
+}
+
+.photo-info span{
+    color:#555;
+
+    font-size:8px;
+
+    letter-spacing:1px;
+}
+
+.photo-info strong{
+    color:#ff9d00;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:10px;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats-grid{
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+.stat-card{
+    padding:30px 20px;
+
+    background:#121212;
+
+    border:1px solid #292929;
+
+    position:relative;
+
+    transition:.3s;
+}
+
+.stat-card::after{
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    width:0;
+    height:2px;
+
+    background:var(--orange);
+
+    transition:.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-6px);
+
+    background:#171717;
+}
+
+.stat-card:hover::after{
+    width:100%;
+}
+
+.stat-icon{
+    font-size:30px;
+
+    margin-bottom:15px;
+}
+
+.stat-card h3{
+    font-family:'Rajdhani',sans-serif;
+
+    letter-spacing:2px;
+
+    font-size:19px;
+
+    margin-bottom:10px;
+}
+
+.stat-card p{
+    color:#888;
+
+    line-height:1.8;
+
+    font-size:12px;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-box{
+    max-width:900px;
+
+    margin:auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            #191919,
+            #0d0d0d
+        );
+
+    border:1px solid #292929;
+
+    border-top:3px solid var(--orange);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.35);
+}
+
+.letter-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:15px 25px;
+
+    background:#080808;
+
+    border-bottom:1px solid #292929;
+
+    color:#666;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:1.5px;
+}
+
+.letter-content{
+    padding:45px;
+
+    text-align:left;
+}
+
+.letter-content h2{
+    font-family:'Rajdhani',sans-serif;
+
+    color:var(--orange);
+
+    font-size:30px;
+
+    margin-bottom:30px;
+
+    letter-spacing:1px;
+}
+
+.letter-content p{
+    color:#c7c7c7;
+
+    line-height:2;
+
+    font-size:14px;
+}
+
+.letter-content strong{
+    color:white;
+}
+
+.letter-signature{
+    padding:20px 45px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#080808;
+
+    border-top:1px solid #292929;
+
+    font-family:'Rajdhani',sans-serif;
+}
+
+.letter-signature span{
+    color:#555;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+}
+
+.letter-signature strong{
+    color:#ff9d00;
+
+    font-size:20px;
+}
+
+
+/* =========================
+   FINAL SECTION
+========================= */
+
+.final-section{
+    position:relative;
+
+    padding:150px 20px;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,106,0,.12),
+            transparent 55%
+        );
+
+    overflow:hidden;
+}
+
+.victory-screen{
+    max-width:800px;
+
+    margin:auto;
+
+    position:relative;
+}
+
+.victory-icon{
+    font-size:60px;
+
+    margin-bottom:15px;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(255,170,0,.5)
+        );
+}
+
+.victory-screen > span{
+    color:#ff9d00;
+
+    font-family:'Rajdhani',sans-serif;
+
+    letter-spacing:5px;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+.victory-screen h2{
+    margin-top:20px;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:55px;
+
+    line-height:.9;
+}
+
+.victory-screen h1{
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:85px;
+
+    color:var(--orange);
+
+    letter-spacing:3px;
+
+    text-shadow:
+        4px 4px 0 #000,
+        0 0 30px rgba(255,106,0,.35);
+}
+
+.victory-screen > p{
+    color:#888;
+
+    margin-top:15px;
+}
+
+.final-stats{
+    max-width:600px;
+
+    margin:35px auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    border:1px solid #292929;
+
+    background:#0a0a0a;
+}
+
+.final-stats div{
+    padding:18px;
+
+    border-right:1px solid #292929;
+}
+
+.final-stats div:last-child{
+    border-right:none;
+}
+
+.final-stats span{
+    display:block;
+
+    color:#555;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+}
+
+.final-stats strong{
+    display:block;
+
+    margin-top:5px;
+
+    color:#ff9d00;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:22px;
+}
+
+.final-message{
+    max-width:600px;
+
+    margin:auto;
+
+    color:#aaa;
+
+    line-height:2;
+
+    font-size:13px;
+}
+
+
+/* =========================
+   ENDING
+========================= */
+
+.ending{
+    position:relative;
+
+    padding:100px 20px;
+
+    text-align:center;
+
+    background:#030303;
+}
+
+.ending h2{
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:35px;
+
+    letter-spacing:5px;
+}
+
+.ending p{
+    margin-top:10px;
+
+    color:#777;
+
+    font-family:'Rajdhani',sans-serif;
+
+    letter-spacing:3px;
+
+    font-size:11px;
+}
+
+.ending span{
+    display:block;
+
+    margin-top:25px;
+
+    color:#444;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+}
+
+.ending-line{
+    width:100px;
+
+    height:2px;
+
+    margin:0 auto 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--orange),
+            transparent
+        );
+
+    box-shadow:
+        0 0 10px var(--orange);
+}
+
+.ending-line:last-child{
+    margin:30px auto 0;
+}
+
+
+/* =========================
+   PARTICLES
+========================= */
+
+#particles{
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:1;
+}
+
+
+/* =========================
+   HEARTS
+========================= */
+
+#hearts{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+
+    z-index:2;
+}
+
+
+/* =========================
+   SCANLINES
+========================= */
+
+body::after{
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:9998;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.015) 0px,
+            rgba(255,255,255,.015) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:7px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050505;
+}
+
+::-webkit-scrollbar-thumb{
+    background:
+        linear-gradient(
+            var(--red),
+            var(--orange)
+        );
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .photo-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .stats-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .hero h1{
+        font-size:70px;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .game-hud{
+        top:10px;
+
+        left:10px;
+        right:10px;
+    }
+
+    .hud-player{
+        padding:5px 8px 5px 5px;
+    }
+
+    .avatar{
+        width:30px;
+        height:30px;
+
+        font-size:16px;
+    }
+
+    .hud-player strong{
+        font-size:12px;
+    }
+
+    .hp-bar{
+        width:70px;
+    }
+
+    .hud-stats{
+        gap:3px;
+    }
+
+    .hud-stats div{
+        padding:6px;
+
+        font-size:10px;
+    }
+
+    .hud-stats span{
+        display:none;
+    }
+
+
+    .password-box{
+        padding:35px 22px;
+    }
+
+    .ff-logo{
+        font-size:20px;
+    }
+
+    .password-box h2{
+        font-size:25px;
+    }
+
+
+    .hero{
+        padding-top:120px;
+    }
+
+    .hero h1{
+        font-size:52px;
+
+        line-height:.9;
+    }
+
+    .hero h2{
+        font-size:25px;
+
+        letter-spacing:3px;
+    }
+
+    .small-title{
+        font-size:10px;
+
+        letter-spacing:2px;
+    }
+
+    .hero-text{
+        font-size:12px;
+    }
+
+
+    .section{
+        padding:75px 15px;
+    }
+
+    .section-heading h2{
+        font-size:32px;
+    }
+
+
+    .mission-card{
+        padding:30px 20px;
+    }
+
+    .mission-card h2{
+        font-size:28px;
+    }
+
+
+    .photo-grid{
+        grid-template-columns:1fr;
+
+        max-width:330px;
+    }
+
+    .photo-card img{
+        height:330px;
+    }
+
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    .letter-top{
+        flex-direction:column;
+
+        gap:5px;
+
+        align-items:flex-start;
+    }
+
+    .letter-content{
+        padding:30px 20px;
+    }
+
+    .letter-content h2{
+        font-size:25px;
+    }
+
+    .letter-content p{
+        font-size:13px;
+
+        line-height:1.9;
+    }
+
+    .letter-signature{
+        padding:15px 20px;
+    }
+
+
+    .victory-screen h2{
+        font-size:40px;
+    }
+
+    .victory-screen h1{
+        font-size:55px;
+    }
+
+    .final-stats{
+        grid-template-columns:1fr;
+    }
+
+    .final-stats div{
+        border-right:none;
+
+        border-bottom:1px solid #292929;
+    }
+
+    .final-stats div:last-child{
+        border-bottom:none;
+    }
+
+
+    .ending h2{
+        font-size:27px;
+
+        letter-spacing:3px;
+    }
+
+  }
