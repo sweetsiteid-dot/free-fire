@@ -1,6 +1,6 @@
-/* =========================
-   PASSWORD / LOGIN
-========================= */
+/* =====================================================
+   PASSWORD SYSTEM
+===================================================== */
 
 function checkPassword(){
 
@@ -9,109 +9,79 @@ function checkPassword(){
 
     if(password === "1906"){
 
-        const passwordScreen =
-            document.getElementById("passwordScreen");
-
-        const websiteContent =
-            document.getElementById("websiteContent");
-
-        passwordScreen.style.opacity = "0";
+        document.getElementById("passwordScreen")
+            .style.opacity = "0";
 
         setTimeout(() => {
 
-            passwordScreen.style.display = "none";
+            document.getElementById("passwordScreen")
+                .style.display = "none";
 
-            websiteContent.style.display = "block";
+            document.getElementById("websiteContent")
+                .style.display = "block";
 
             document.body.style.overflowX = "hidden";
 
-            playMusic();
-
             startGameEffects();
 
-        },600);
+        }, 700);
 
     }else{
+
+        alert("Wrong Password 🔥");
 
         const input =
             document.getElementById("passwordInput");
 
         input.value = "";
 
-        input.placeholder = "WRONG PIN — TRY AGAIN";
-
-        input.style.borderColor = "#ff2b00";
-
-        input.animate(
-            [
-                {transform:"translateX(0)"},
-                {transform:"translateX(-8px)"},
-                {transform:"translateX(8px)"},
-                {transform:"translateX(-5px)"},
-                {transform:"translateX(5px)"},
-                {transform:"translateX(0)"}
-            ],
-            {
-                duration:400
-            }
-        );
-
-        setTimeout(() => {
-
-            input.placeholder =
-                "ENTER SECRET PIN";
-
-            input.style.borderColor =
-                "#333";
-
-        },1500);
+        input.focus();
 
     }
 
 }
 
 
-/* =========================
+/* =====================================================
    ENTER KEY PASSWORD
-========================= */
+===================================================== */
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
     const input =
         document.getElementById("passwordInput");
 
-    input.addEventListener("keydown",(event)=>{
+    if(input){
 
-        if(event.key === "Enter"){
+        input.addEventListener("keypress", (event) => {
 
-            checkPassword();
+            if(event.key === "Enter"){
 
-        }
+                checkPassword();
 
-    });
+            }
+
+        });
+
+    }
 
 });
 
 
-/* =========================
-   MUSIC
-========================= */
+/* =====================================================
+   OPEN GIFT / START MISSION
+===================================================== */
 
-function playMusic(){
+function openGift(){
 
     const music =
         document.getElementById("music");
 
-    if(!music) return;
+    if(music){
 
-    music.volume = 0.45;
+        music.volume = 0.45;
 
-    const promise =
-        music.play();
-
-    if(promise !== undefined){
-
-        promise.catch(()=>{
+        music.play().catch(() => {
 
             console.log(
                 "Music requires user interaction."
@@ -121,16 +91,6 @@ function playMusic(){
 
     }
 
-}
-
-
-/* =========================
-   OPEN MISSION
-========================= */
-
-function openGift(){
-
-    playMusic();
 
     const giftSection =
         document.getElementById("giftSection");
@@ -139,536 +99,638 @@ function openGift(){
 
         giftSection.scrollIntoView({
 
-            behavior:"smooth",
-
-            block:"start"
+            behavior:"smooth"
 
         });
 
     }
 
-    createMissionBurst();
+
+    createMissionEffect();
 
 }
 
 
-/* =========================
-   GAME EFFECT STARTER
-========================= */
+/* =====================================================
+   START GAME EFFECTS
+===================================================== */
 
 function startGameEffects(){
 
-    createFire();
+    createFloatingElements();
 
-    createHeart();
+    createParticles();
 
-    createDiamond();
-
-    setInterval(createFire,250);
-
-    setInterval(createHeart,700);
-
-    setInterval(createDiamond,1200);
+    startScrollAnimation();
 
 }
 
 
-/* =========================
-   FIRE PARTICLES
-========================= */
+/* =====================================================
+   FLOATING FREE FIRE ELEMENTS
+===================================================== */
 
-function createFire(){
-
-    const container =
-        document.getElementById("particles");
-
-    if(!container) return;
-
-    const fire =
-        document.createElement("div");
-
-    fire.innerHTML =
-        Math.random() > .5
-        ? "🔥"
-        : "✦";
-
-    fire.style.position =
-        "fixed";
-
-    fire.style.left =
-        Math.random()*100+"vw";
-
-    fire.style.bottom =
-        "-30px";
-
-    fire.style.fontSize =
-        (Math.random()*12+8)+"px";
-
-    fire.style.opacity =
-        Math.random()*.7+.3;
-
-    fire.style.pointerEvents =
-        "none";
-
-    fire.style.filter =
-        "drop-shadow(0 0 8px rgba(255,106,0,.8))";
-
-    fire.style.animation =
-        `fireFloat ${Math.random()*4+4}s linear forwards`;
-
-    container.appendChild(fire);
-
-    setTimeout(()=>{
-
-        fire.remove();
-
-    },8000);
-
-}
-
-
-/* =========================
-   HEART PARTICLES
-========================= */
-
-function createHeart(){
+function createFloatingElements(){
 
     const container =
         document.getElementById("hearts");
 
     if(!container) return;
 
-    const heart =
-        document.createElement("div");
 
-    const hearts = [
-        "🤍",
-        "❤️",
-        "🧡"
+    const elements = [
+
+        {
+            icon:"🔥",
+            className:"floating-fire"
+        },
+
+        {
+            icon:"💎",
+            className:"floating-diamond"
+        },
+
+        {
+            icon:"🎖️",
+            className:"floating-rank"
+        },
+
+        {
+            icon:"🎁",
+            className:"floating-loot"
+        },
+
+        {
+            icon:"🔫",
+            className:"floating-weapon"
+        },
+
+        {
+            icon:"⚡",
+            className:"floating-effect"
+        }
+
     ];
 
-    heart.innerHTML =
-        hearts[
-            Math.floor(
-                Math.random()*hearts.length
-            )
-        ];
 
-    heart.style.position =
-        "fixed";
+    setInterval(() => {
 
-    heart.style.left =
-        Math.random()*100+"vw";
-
-    heart.style.top =
-        "-30px";
-
-    heart.style.fontSize =
-        (Math.random()*12+10)+"px";
-
-    heart.style.opacity =
-        Math.random()*.6+.3;
-
-    heart.style.pointerEvents =
-        "none";
-
-    heart.style.animation =
-        `heartFall ${Math.random()*5+6}s linear forwards`;
-
-    container.appendChild(heart);
-
-    setTimeout(()=>{
-
-        heart.remove();
-
-    },12000);
-
-}
+        const data =
+            elements[
+                Math.floor(
+                    Math.random() *
+                    elements.length
+                )
+            ];
 
 
-/* =========================
-   DIAMOND PARTICLES
-========================= */
-
-function createDiamond(){
-
-    const container =
-        document.getElementById("particles");
-
-    if(!container) return;
-
-    const diamond =
-        document.createElement("div");
-
-    diamond.innerHTML = "💎";
-
-    diamond.style.position =
-        "fixed";
-
-    diamond.style.left =
-        Math.random()*100+"vw";
-
-    diamond.style.top =
-        Math.random()*100+"vh";
-
-    diamond.style.fontSize =
-        (Math.random()*8+8)+"px";
-
-    diamond.style.opacity =
-        "0";
-
-    diamond.style.pointerEvents =
-        "none";
-
-    diamond.style.animation =
-        "diamondGlow 3s ease forwards";
-
-    container.appendChild(diamond);
-
-    setTimeout(()=>{
-
-        diamond.remove();
-
-    },3000);
-
-}
-
-
-/* =========================
-   MISSION BURST
-========================= */
-
-function createMissionBurst(){
-
-    const container =
-        document.getElementById("particles");
-
-    if(!container) return;
-
-    for(let i=0;i<15;i++){
-
-        const particle =
+        const element =
             document.createElement("div");
 
-        particle.innerHTML =
-            Math.random() > .5
-            ? "🔥"
-            : "✦";
 
-        particle.style.position =
-            "fixed";
+        element.className =
+            "floating-ff-element " +
+            data.className;
 
-        particle.style.left =
-            "50%";
 
-        particle.style.top =
-            "50%";
+        element.innerHTML =
+            data.icon;
 
-        particle.style.fontSize =
-            "18px";
 
-        particle.style.pointerEvents =
-            "none";
+        element.style.left =
+            Math.random() * 90 + "vw";
 
-        const angle =
-            Math.random()*Math.PI*2;
 
-        const distance =
-            Math.random()*180+50;
+        element.style.fontSize =
+            Math.random() * 20 + 20 + "px";
 
-        const x =
-            Math.cos(angle)*distance;
 
-        const y =
-            Math.sin(angle)*distance;
+        element.style.animationDuration =
+            Math.random() * 5 + 6 + "s";
 
-        particle.animate(
 
-            [
-                {
-                    transform:"translate(-50%,-50%) scale(0)",
-                    opacity:1
-                },
-                {
-                    transform:
-                        `translate(
-                            calc(-50% + ${x}px),
-                            calc(-50% + ${y}px)
-                        ) scale(1.5)`,
+        container.appendChild(element);
 
-                    opacity:0
-                }
-            ],
 
-            {
-                duration:1000,
-                easing:"ease-out"
-            }
+        setTimeout(() => {
 
+            element.remove();
+
+        },9000);
+
+
+    },900);
+
+}
+
+
+/* =====================================================
+   FLOATING ELEMENT CSS
+===================================================== */
+
+const floatingStyle =
+document.createElement("style");
+
+floatingStyle.innerHTML = `
+
+.floating-ff-element{
+
+    position:absolute;
+
+    top:-50px;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    animation:
+        floatingFF 8s
+        linear forwards;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(255,106,0,.5)
         );
 
-        container.appendChild(particle);
+}
 
-        setTimeout(()=>{
+.floating-fire{
 
-            particle.remove();
-
-        },1000);
-
-    }
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(255,80,0,.8)
+        );
 
 }
 
+.floating-diamond{
 
-/* =========================
-   DYNAMIC ANIMATIONS
-========================= */
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(0,180,255,.8)
+        );
 
-const style =
-    document.createElement("style");
+}
 
-style.innerHTML = `
+.floating-rank{
 
-@keyframes fireFloat{
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(255,196,0,.7)
+        );
+
+}
+
+.floating-loot{
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(255,106,0,.6)
+        );
+
+}
+
+.floating-weapon{
+
+    transform:rotate(-20deg);
+
+}
+
+.floating-effect{
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(255,200,0,.8)
+        );
+
+}
+
+@keyframes floatingFF{
 
     0%{
 
         transform:
             translateY(0)
-            scale(.7)
-            rotate(0deg);
-
-        opacity:0;
-
-    }
-
-    15%{
-        opacity:1;
-    }
-
-    100%{
-
-        transform:
-            translateY(-110vh)
-            translateX(
-                ${Math.random()*100-50}px
-            )
-            scale(1.4)
-            rotate(180deg);
-
-        opacity:0;
-
-    }
-
-}
-
-
-@keyframes heartFall{
-
-    0%{
-
-        transform:
-            translateY(0)
-            rotate(0deg);
+            rotate(0deg)
+            scale(.7);
 
         opacity:0;
 
     }
 
     10%{
-        opacity:1;
-    }
 
-    100%{
-
-        transform:
-            translateY(110vh)
-            rotate(360deg);
-
-        opacity:0;
-
-    }
-
-}
-
-
-@keyframes diamondGlow{
-
-    0%{
-
-        opacity:0;
-
-        transform:
-            scale(.5)
-            rotate(0deg);
+        opacity:.8;
 
     }
 
     50%{
 
-        opacity:.8;
-
         transform:
-            scale(1.2)
-            rotate(180deg);
+            translateY(50vh)
+            rotate(180deg)
+            scale(1);
+
+        opacity:.6;
 
     }
 
     100%{
 
-        opacity:0;
-
         transform:
-            scale(.5)
-            rotate(360deg);
+            translateY(115vh)
+            rotate(360deg)
+            scale(.6);
+
+        opacity:0;
 
     }
 
 }
 
+`;
 
-.fade-in{
+document.head.appendChild(floatingStyle);
 
-    opacity:0;
 
-    transform:
-        translateY(35px);
+/* =====================================================
+   PARTICLES
+===================================================== */
 
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
+function createParticles(){
+
+    let particleContainer =
+        document.getElementById("particles");
+
+
+    if(!particleContainer){
+
+        particleContainer =
+            document.createElement("div");
+
+        particleContainer.id =
+            "particles";
+
+        document.body.appendChild(
+            particleContainer
+        );
+
+    }
+
+
+    setInterval(() => {
+
+        const particle =
+            document.createElement("span");
+
+
+        particle.innerHTML =
+            Math.random() > .5
+                ? "✦"
+                : "•";
+
+
+        particle.style.position =
+            "absolute";
+
+
+        particle.style.left =
+            Math.random() * 100 + "vw";
+
+
+        particle.style.top =
+            Math.random() * 100 + "vh";
+
+
+        particle.style.color =
+            Math.random() > .5
+                ? "#ff6a00"
+                : "#ffc400";
+
+
+        particle.style.opacity =
+            Math.random() * .5 + .2;
+
+
+        particle.style.fontSize =
+            Math.random() * 8 + 5 + "px";
+
+
+        particle.style.animation =
+            "particleFade 3s ease forwards";
+
+
+        particleContainer.appendChild(
+            particle
+        );
+
+
+        setTimeout(() => {
+
+            particle.remove();
+
+        },3000);
+
+
+    },250);
 
 }
 
 
-.fade-in.show{
+const particleStyle =
+document.createElement("style");
+
+particleStyle.innerHTML = `
+
+@keyframes particleFade{
+
+    0%{
+
+        transform:
+            scale(.3)
+            translateY(0);
+
+        opacity:0;
+
+    }
+
+    30%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+            scale(1.4)
+            translateY(-40px);
+
+        opacity:0;
+
+    }
+
+}
+
+`;
+
+document.head.appendChild(particleStyle);
+
+
+/* =====================================================
+   MISSION COMPLETE EFFECT
+===================================================== */
+
+function createMissionEffect(){
+
+    const burst =
+        document.createElement("div");
+
+
+    burst.className =
+        "mission-complete";
+
+
+    burst.innerHTML = `
+
+        <div class="mission-complete-icon">
+            🎖️
+        </div>
+
+        <div class="mission-complete-text">
+            MISSION STARTED
+        </div>
+
+    `;
+
+
+    document.body.appendChild(
+        burst
+    );
+
+
+    setTimeout(() => {
+
+        burst.classList.add("show");
+
+    },50);
+
+
+    setTimeout(() => {
+
+        burst.classList.remove("show");
+
+    },1800);
+
+
+    setTimeout(() => {
+
+        burst.remove();
+
+    },2500);
+
+}
+
+
+const missionStyle =
+document.createElement("style");
+
+missionStyle.innerHTML = `
+
+.mission-complete{
+
+    position:fixed;
+
+    left:50%;
+
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.5);
+
+    z-index:9999;
+
+    text-align:center;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.5s;
+
+}
+
+.mission-complete.show{
 
     opacity:1;
 
     transform:
-        translateY(0);
+        translate(-50%,-50%)
+        scale(1);
 
 }
 
+.mission-complete-icon{
 
-.mission-card{
+    font-size:80px;
 
-    transition:
-        transform .4s ease,
-        box-shadow .4s ease;
-
-}
-
-
-.mission-card:hover{
-
-    transform:
-        translateY(-5px);
-
-    box-shadow:
-        0 20px 60px
-        rgba(255,106,0,.12);
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255,150,0,.8)
+        );
 
 }
 
+.mission-complete-text{
 
-#passwordScreen{
+    margin-top:15px;
 
-    transition:
-        opacity .6s ease;
+    padding:10px 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff2b00,
+            #ff8c00
+        );
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
 
 }
-
 
 `;
 
+document.head.appendChild(
+    missionStyle
+);
 
-document.head.appendChild(style);
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+function startScrollAnimation(){
+
+    const elements =
+        document.querySelectorAll(
+
+            ".section," +
+            ".mission-card," +
+            ".photo-card," +
+            ".stat-card," +
+            ".letter-box," +
+            ".final-section," +
+            ".ending"
+
+        );
 
 
-/* =========================
-   SCROLL ANIMATION
-========================= */
+    elements.forEach(element => {
 
-const observer =
-    new IntersectionObserver(
+        element.classList.add(
+            "fade-in"
+        );
 
-        entries => {
+    });
 
-            entries.forEach(entry => {
 
-                if(entry.isIntersecting){
+    const observer =
+        new IntersectionObserver(
 
-                    entry.target.classList.add(
-                        "show"
-                    );
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if(
+                        entry.isIntersecting
+                    ){
+
+                        entry.target
+                            .classList
+                            .add("show");
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold:.12
+            }
+
+        );
+
+
+    elements.forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+}
+
+
+/* =====================================================
+   PHOTO HOVER
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const photos =
+            document.querySelectorAll(
+                ".photo-card"
+            );
+
+
+        photos.forEach(photo => {
+
+            photo.addEventListener(
+                "mouseenter",
+                () => {
+
+                    photo.style.transform =
+                        "translateY(-10px) scale(1.03)";
 
                 }
-
-            });
-
-        },
-
-        {
-            threshold:.12
-        }
-
-    );
+            );
 
 
-document.querySelectorAll(
-    ".section," +
-    ".mission-card," +
-    ".photo-card," +
-    ".stat-card," +
-    ".letter-box," +
-    ".final-section," +
-    ".ending"
-).forEach(element => {
+            photo.addEventListener(
+                "mouseleave",
+                () => {
 
-    element.classList.add("fade-in");
+                    photo.style.transform =
+                        "";
 
-    observer.observe(element);
+                }
+            );
 
-});
+        });
 
-
-/* =========================
-   PHOTO HOVER
-========================= */
-
-const photoCards =
-    document.querySelectorAll(
-        ".photo-card"
-    );
-
-photoCards.forEach(card => {
-
-    card.addEventListener(
-        "mouseenter",
-        () => {
-
-            card.style.transform =
-                "translateY(-8px) scale(1.03)";
-
-        }
-    );
-
-    card.addEventListener(
-        "mouseleave",
-        () => {
-
-            card.style.transform = "";
-
-        }
-    );
-
-});
+    }
+);
 
 
-/* =========================
+/* =====================================================
    HERO PARALLAX
-========================= */
+===================================================== */
 
 window.addEventListener(
     "scroll",
@@ -677,169 +739,72 @@ window.addEventListener(
         const hero =
             document.querySelector(".hero");
 
+
         if(!hero) return;
+
 
         const scroll =
             window.pageYOffset;
 
-        hero.style.transform =
-            `translateY(${scroll * .03}px)`;
+
+        const character =
+            document.querySelector(
+                ".hero-character"
+            );
+
+
+        const parachute =
+            document.querySelector(
+                ".hero-parachute"
+            );
+
+
+        const fire =
+            document.querySelector(
+                ".hero-fire"
+            );
+
+
+        if(character){
+
+            character.style.transform =
+                `translateY(${scroll * .12}px)`;
+
+        }
+
+
+        if(parachute){
+
+            parachute.style.transform =
+                `translateY(${scroll * .06}px)`;
+
+        }
+
+
+        if(fire){
+
+            fire.style.transform =
+                `translateY(${scroll * .2}px)`;
+
+        }
 
     }
 );
 
 
-/* =========================
-   MISSION TEXT
-========================= */
-
-const missionMessages = [
-
-    "MISSION ACCEPTED 🔥",
-
-    "TARGET LOCKED ❤️",
-
-    "LOVE LEVEL: MAXIMUM 💎",
-
-    "TEAM KALA × HAVEN",
-
-    "MISSION: STAY TOGETHER ♾️"
-
-];
-
-
-let missionIndex = 0;
-
-
-/* =========================
-   FLOATING MISSION MESSAGE
-========================= */
-
-const missionMessage =
-    document.createElement("div");
-
-missionMessage.className =
-    "floating-quote";
-
-missionMessage.innerText =
-    missionMessages[0];
-
-document.body.appendChild(
-    missionMessage
-);
-
-
-const quoteStyle =
-    document.createElement("style");
-
-quoteStyle.innerHTML = `
-
-.floating-quote{
-
-    position:fixed;
-
-    bottom:25px;
-
-    left:50%;
-
-    transform:
-        translateX(-50%);
-
-    padding:
-        9px 18px;
-
-    background:
-        rgba(5,5,5,.85);
-
-    border-left:
-        2px solid #ff6a00;
-
-    border-right:
-        2px solid #ff6a00;
-
-    color:#ff9d00;
-
-    font-family:'Rajdhani',sans-serif;
-
-    font-size:11px;
-
-    font-weight:600;
-
-    letter-spacing:2px;
-
-    z-index:999;
-
-    opacity:.8;
-
-    transition:
-        opacity .5s ease,
-        transform .5s ease;
-
-    pointer-events:none;
-
-}
-
-`;
-
-
-document.head.appendChild(
-    quoteStyle
-);
-
-
-/* =========================
-   CHANGE MISSION MESSAGE
-========================= */
-
-setInterval(()=>{
-
-    missionMessage.style.opacity = "0";
-
-    setTimeout(()=>{
-
-        missionIndex++;
-
-        if(
-            missionIndex >=
-            missionMessages.length
-        ){
-
-            missionIndex = 0;
-
-        }
-
-        missionMessage.innerText =
-            missionMessages[missionIndex];
-
-        missionMessage.style.opacity =
-            ".8";
-
-    },500);
-
-},5000);
-
-
-/* =========================
-   MUSIC VOLUME
-========================= */
+/* =====================================================
+   MUSIC VOLUME CONTROL
+===================================================== */
 
 document.addEventListener(
-    "visibilitychange",
+    "DOMContentLoaded",
     () => {
 
         const music =
             document.getElementById("music");
 
-        if(!music) return;
 
-        if(
-            document.visibilityState ===
-            "hidden"
-        ){
-
-            music.volume = .2;
-
-        }else{
+        if(music){
 
             music.volume = .45;
 
@@ -849,21 +814,376 @@ document.addEventListener(
 );
 
 
-/* =========================
-   CONSOLE
-========================= */
+/* =====================================================
+   DOUBLE CLICK PHOTO
+===================================================== */
 
-console.log(
-    "%c🔥 KALA. × HAVEN. 🔥",
-    "color:#ff6a00;font-size:20px;font-weight:bold;"
+document.addEventListener(
+    "dblclick",
+    event => {
+
+        const photo =
+            event.target.closest(
+                ".photo-card"
+            );
+
+
+        if(!photo) return;
+
+
+        createHeartBurst(
+            event.clientX,
+            event.clientY
+        );
+
+    }
 );
 
-console.log(
-    "%cMISSION: 2ND MENSIVE",
-    "color:#ff9d00;font-size:14px;"
+
+/* =====================================================
+   HEART / LOVE BURST
+===================================================== */
+
+function createHeartBurst(x,y){
+
+    const hearts = [
+        "🤍",
+        "🧡",
+        "🔥",
+        "✨"
+    ];
+
+
+    for(let i = 0; i < 10; i++){
+
+        const heart =
+            document.createElement("div");
+
+
+        heart.innerHTML =
+            hearts[
+                Math.floor(
+                    Math.random() *
+                    hearts.length
+                )
+            ];
+
+
+        heart.style.position =
+            "fixed";
+
+
+        heart.style.left =
+            x + "px";
+
+
+        heart.style.top =
+            y + "px";
+
+
+        heart.style.zIndex =
+            "9999";
+
+
+        heart.style.pointerEvents =
+            "none";
+
+
+        heart.style.fontSize =
+            Math.random() * 15 + 15 + "px";
+
+
+        const angle =
+            Math.random() *
+            Math.PI * 2;
+
+
+        const distance =
+            Math.random() * 100 + 40;
+
+
+        const targetX =
+            Math.cos(angle) *
+            distance;
+
+
+        const targetY =
+            Math.sin(angle) *
+            distance;
+
+
+        heart.animate(
+
+            [
+
+                {
+                    transform:
+                        "translate(-50%,-50%) scale(.5)",
+
+                    opacity:1
+
+                },
+
+                {
+
+                    transform:
+                        `translate(
+                            calc(-50% + ${targetX}px),
+                            calc(-50% + ${targetY}px)
+                        )
+                        scale(1.3)`,
+
+                    opacity:0
+
+                }
+
+            ],
+
+            {
+
+                duration:
+                    Math.random() * 700 + 700,
+
+                easing:
+                    "cubic-bezier(.2,.8,.3,1)"
+
+            }
+
+        );
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        },1500);
+
+    }
+
+}
+
+
+/* =====================================================
+   SECRET MESSAGE
+===================================================== */
+
+let secretClicks = 0;
+
+
+document.addEventListener(
+    "click",
+    event => {
+
+        if(
+            event.target.classList.contains(
+                "victory-icon"
+            )
+        ){
+
+            secretClicks++;
+
+
+            if(secretClicks >= 5){
+
+                secretClicks = 0;
+
+
+                alert(
+                    "💌 I love you more than three words ever could 🤍"
+                );
+
+            }
+
+        }
+
+    }
 );
 
-console.log(
-    "%cLOVE STATUS: INFINITE ❤️",
-    "color:#ffffff;font-size:12px;"
+
+/* =====================================================
+   RANDOM GAME QUOTES
+===================================================== */
+
+const quotes = [
+
+    "Mission: Keep loving you forever 🤍",
+
+    "Booyah! We survived another month together 🔥",
+
+    "2nd Mensive — Mission Complete 🎖️",
+
+    "You are my favorite teammate 🤍",
+
+    "No matter the map, I choose you.",
+
+    "My favorite loot will always be you 🎁",
+
+    "You + Me = Unlimited Booyah 🧡",
+
+    "I would choose you in every match.",
+
+    "Our next mission: Forever together 🤍"
+
+];
+
+
+let currentQuote = 0;
+
+
+const quoteElement =
+    document.createElement("div");
+
+
+quoteElement.className =
+    "floating-quote";
+
+
+quoteElement.innerText =
+    quotes[0];
+
+
+document.body.appendChild(
+    quoteElement
+);
+
+
+setInterval(() => {
+
+    currentQuote++;
+
+
+    if(
+        currentQuote >= quotes.length
+    ){
+
+        currentQuote = 0;
+
+    }
+
+
+    quoteElement.style.opacity =
+        "0";
+
+
+    setTimeout(() => {
+
+        quoteElement.innerText =
+            quotes[currentQuote];
+
+        quoteElement.style.opacity =
+            "1";
+
+    },500);
+
+
+},5000);
+
+
+/* =====================================================
+   QUOTE STYLE
+===================================================== */
+
+const quoteStyle =
+document.createElement("style");
+
+quoteStyle.innerHTML = `
+
+.floating-quote{
+
+    position:fixed;
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index:998;
+
+    padding:
+        10px 18px;
+
+    background:
+        rgba(5,5,5,.85);
+
+    border-left:
+        2px solid
+        #ff6a00;
+
+    border-right:
+        2px solid
+        #ff6a00;
+
+    color:#ddd;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:12px;
+
+    letter-spacing:1px;
+
+    white-space:nowrap;
+
+    backdrop-filter:
+        blur(10px);
+
+    transition:.5s;
+
+}
+
+
+@media(max-width:600px){
+
+    .floating-quote{
+
+        max-width:90%;
+
+        overflow:hidden;
+
+        text-overflow:ellipsis;
+
+        font-size:10px;
+
+    }
+
+}
+
+`;
+
+document.head.appendChild(
+    quoteStyle
+);
+
+
+/* =====================================================
+   PREVENT MUSIC ERROR
+===================================================== */
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        const music =
+            document.getElementById("music");
+
+
+        if(!music) return;
+
+
+        if(
+            document.hidden &&
+            !music.paused
+        ){
+
+            music.pause();
+
+        }
+
+    }
 );
