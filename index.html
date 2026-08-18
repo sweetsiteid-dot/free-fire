@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy 2nd Mensive | Kala. × Haven. 🔥</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- =========================
+     PASSWORD SCREEN
+========================= -->
+
+<div id="passwordScreen">
+
+    <div class="password-overlay">
+
+        <div class="password-box">
+
+            <div class="ff-logo">
+                FREE FIRE
+            </div>
+
+            <div class="mission-label">
+                SPECIAL MISSION
+            </div>
+
+            <h1>🔥</h1>
+
+            <h2>2ND MENSIVE</h2>
+
+            <p>
+                A special mission has been created
+                <br>
+                for someone very special.
+            </p>
+
+            <div class="player-info">
+
+                <span>PLAYER</span>
+                <strong>Kala.</strong>
+
+                <span>TARGET</span>
+                <strong>My beloved, Haven.</strong>
+
+            </div>
+
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="ENTER SECRET PIN"
+                maxlength="4"
+            >
+
+            <button onclick="checkPassword()">
+                UNLOCK MISSION 🔥
+            </button>
+
+            <p class="hint">
+                Enter your secret 4-digit PIN
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     WEBSITE CONTENT
+========================= -->
+
+<div id="websiteContent">
+
+<audio id="music" loop>
+    <source
+        src="assets/music/last-night-on-earth.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+
+<!-- FIRE / PARTICLE CONTAINER -->
+
+<div id="hearts"></div>
+<div id="particles"></div>
+
+
+<!-- =========================
+     GAME HUD
+========================= -->
+
+<div class="game-hud">
+
+    <div class="hud-player">
+
+        <div class="avatar">
+            K
+        </div>
+
+        <div>
+
+            <span>PLAYER</span>
+
+            <strong>Kala.</strong>
+
+            <div class="hp-bar">
+                <div class="hp-fill"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hud-stats">
+
+        <div>
+            ❤️
+            <span>LOVE</span>
+            <strong>∞</strong>
+        </div>
+
+        <div>
+            💎
+            <span>DIAMOND</span>
+            <strong>999+</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     HERO / LOBBY
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="mission-tag">
+            ⚡ SPECIAL EVENT ⚡
+        </div>
+
+        <p class="small-title">
+            PLAYER KALA. × HAVEN.
+        </p>
+
+        <h1>
+            HAPPY
+            <span>2ND MENSIVE</span>
+        </h1>
+
+        <h2>
+            SAYANGKUU 🤍
+        </h2>
+
+        <p class="hero-text">
+
+            Tiba-tiba udah 2 bulan aja kita.
+            <br>
+            Time really flies when I'm with you.
+
+        </p>
+
+        <button onclick="openGift()" class="start-button">
+
+            ▶ START MISSION
+
+        </button>
+
+        <div class="mission-status">
+
+            <span>MISSION STATUS</span>
+
+            <strong>COMPLETED ❤️</strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MISSION CARD
+========================= -->
+
+<section id="giftSection" class="section">
+
+    <div class="mission-card">
+
+        <div class="card-header">
+
+            <span>
+                MISSION #002
+            </span>
+
+            <span>
+                COMPLETED ✓
+            </span>
+
+        </div>
+
+        <div class="mission-icon">
+            🔥
+        </div>
+
+        <h2>
+            OUR 2 MONTHS
+        </h2>
+
+        <p>
+
+            Dua bulan mungkin masih sebentar,
+            tapi buat aku setiap harinya
+            selalu punya cerita yang berarti.
+
+            <br><br>
+
+            Dari yang awalnya aku terus ngejar kamu,
+            sampai akhirnya sekarang
+            kamu jadi pacar aku.
+
+            <br><br>
+
+            <strong>
+                Usaha pasti nggak akan mengkhianati hasil.
+            </strong>
+
+        </p>
+
+        <div class="mission-reward">
+
+            <span>REWARD UNLOCKED</span>
+
+            <strong>
+                ❤️ FOREVER WITH YOU
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PHOTO INVENTORY
+========================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span>
+            INVENTORY
+        </span>
+
+        <h2>
+            OUR MEMORIES 📸
+        </h2>
+
+        <p>
+            8 memories unlocked.
+        </p>
+
+    </div>
+
+
+    <div class="photo-grid">
+
+
+        <div class="photo-card">
+
+            <div class="item-number">
+                #01
+            </div>
+
+            <img
+                src="assets/photos/photo1.jpg"
+                alt="Memory 1"
+            >
+
+            <div class="photo-info">
+                <span>MEMORY ITEM</span>
+                <strong>UNLOCKED ❤️</strong>
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <div class="item-number">
+                #02
+            </div>
+
+            <img
+                src="assets/photos/photo2.jpg"
+                alt="Memory 2"
+            >
+
+            <div class="photo-info">
+                <span>MEMORY ITEM</span>
+                <strong>UNLOCKED ❤️</strong>
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <div class="item-number">
+                #03
+            </div>
+
+            <img
+                src="assets/photos/photo3.jpg"
+                alt="Memory 3"
+            >
+
+            <div class="photo-info">
+                <span>MEMORY ITEM</span>
+                <strong>UNLOCKED ❤️</strong>
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <div class="item-number">
+                #04
+            </div>
+
+            <img
+                src="assets/photos/photo4.jpg"
+                alt="Memory 4"
+            >
+
+            <div class="photo-info">
+                <span>MEMORY ITEM</span>
+                <strong>UNLOCKED ❤️</strong>
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <div class="item-number">
+                #05
+            </div>
+
+            <img
+                src="assets/photos/photo5.jpg"
+                alt="Memory 5"
+            >
+
+            <div class="photo-info">
+                <span>MEMORY ITEM</span>
+                <strong>UNLOCKED ❤️</strong>
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <div class="item-number">
+                #06
+            </div>
+
+            <img
+                src="assets/photos/photo6.jpg"
+                alt="Memory 6"
+            >
+
+            <div class="photo-info">
+                <span>MEMORY ITEM</span>
+                <strong>UNLOCKED ❤️</strong>
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <div class="item-number">
+                #07
+            </div>
+
+            <img
+                src="assets/photos/photo7.jpg"
+                alt="Memory 7"
+            >
+
+            <div class="photo-info">
+                <span>MEMORY ITEM</span>
+                <strong>UNLOCKED ❤️</strong>
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <div class="item-number">
+                #08
+            </div>
+
+            <img
+                src="assets/photos/photo8.jpg"
+                alt="Memory 8"
+            >
+
+            <div class="photo-info">
+                <span>MEMORY ITEM</span>
+                <strong>UNLOCKED ❤️</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LOVE STATS
+========================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span>
+            PLAYER STATS
+        </span>
+
+        <h2>
+            WHY YOU'RE SPECIAL 🤍
+        </h2>
+
+    </div>
+
+
+    <div class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ❤️
+            </div>
+
+            <h3>
+                YOUR SMILE
+            </h3>
+
+            <p>
+                Senyum kamu selalu punya cara
+                sendiri buat bikin hari aku lebih baik.
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔥
+            </div>
+
+            <h3>
+                YOUR ENERGY
+            </h3>
+
+            <p>
+                Ada sesuatu dari kamu
+                yang selalu bikin aku betah.
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                💎
+            </div>
+
+            <h3>
+                YOUR HEART
+            </h3>
+
+            <p>
+                Salah satu alasan kenapa
+                aku bersyukur bisa punya kamu.
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ♾️
+            </div>
+
+            <h3>
+                EVERYTHING ABOUT YOU
+            </h3>
+
+            <p>
+                Nggak perlu alasan khusus.
+                Aku suka semuanya tentang kamu.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LETTER
+========================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span>
+            PRIVATE MESSAGE
+        </span>
+
+        <h2>
+            A LETTER FOR HAVEN. 💌
+        </h2>
+
+    </div>
+
+
+    <div class="letter-box">
+
+        <div class="letter-top">
+
+            <span>
+                FROM: KALA.
+            </span>
+
+            <span>
+                TO: MY BELOVED, HAVEN.
+            </span>
+
+        </div>
+
+
+        <div class="letter-content">
+
+            <h2>
+                Happy 2nd Mensive, Sayangkuu.
+            </h2>
+
+
+            <p>
+
+                Tiba tiba udah 2 bulan aja kita,
+                perasaan kemarin aku masih ngejar ngejar
+                kamu walau jawaban kamu pasti itu itu aja wkkwk.
+
+                <br><br>
+
+                Tapi tau ga?
+
+                Setiap kamu ngomong "sabar" gitu,
+                bukannya bikin aku nyerah justru malah
+                bikin aku makin semangat buat ngejar kamu.
+
+                <br><br>
+
+                Usaha pasti ga bakal ngekhianatin hasil,
+                buktinya kamu jadi pacar aku sekarang 🤍.
+
+                <br><br>
+
+                Kayaknya bisa setiap hari deh aku ngomong gini
+                ke kamu, kalau aku bener bener berterima kasih
+                banget sama kamu.
+
+                <br><br>
+
+                Terima kasih yaa udah milih buat stay
+                di sini sama aku.
+
+                <br><br>
+
+                Aku ga tau kedepannya bakal gimana,
+                toh masa depan emang ga ada yang tau kann.
+
+                <br><br>
+
+                Tapi aku tau,
+                kalau aku mau ngejalanin semuanya
+                sama kamu terus.
+
+                <br><br>
+
+                Semoga kita sama sama terus ya.
+
+                <br><br>
+
+                Maafin aku kalau misalnya aku pernah
+                bikin kamu sedih, pernah bikin kamu kesel,
+                pokoknya pernah bikin kamu ngerasain
+                hal hal yang ga enak.
+
+                <br><br>
+
+                Aku janji bakal terus berusaha
+                buat terus jadi versi terbaiknya aku
+                buat kamu.
+
+                <br><br>
+
+                Sekali lagi Happy 2nd Mensive Sayaang.
+
+                <br><br>
+
+                <strong>
+                    I love u more than three words ever could 🤍.
+                </strong>
+
+            </p>
+
+        </div>
+
+
+        <div class="letter-signature">
+
+            <span>
+                FROM
+            </span>
+
+            <strong>
+                Kala.
+            </strong>
+
+            <span>
+                WITH ALL MY LOVE 🤍
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FINAL MISSION
+========================= -->
+
+<section class="final-section">
+
+    <div class="victory-screen">
+
+        <div class="victory-icon">
+            🏆
+        </div>
+
+        <span>
+            MISSION COMPLETED
+        </span>
+
+        <h2>
+            HAPPY 2ND
+        </h2>
+
+        <h1>
+            MENSIVE 🤍
+        </h1>
+
+        <p>
+            Kala. × My beloved, Haven.
+        </p>
+
+        <div class="final-stats">
+
+            <div>
+                <span>LOVE</span>
+                <strong>∞</strong>
+            </div>
+
+            <div>
+                <span>MONTHS</span>
+                <strong>02</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>US ❤️</strong>
+            </div>
+
+        </div>
+
+        <p class="final-message">
+
+            Semoga kita sama-sama terus ya.
+
+            <br>
+
+            Through every mission,
+            every battle,
+            and every chapter.
+
+            <br><br>
+
+            I'll always choose you.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ENDING
+========================= -->
+
+<section class="ending">
+
+    <div class="ending-line"></div>
+
+    <h2>
+        KALA. × HAVEN.
+    </h2>
+
+    <p>
+        ONE TEAM. ONE LOVE. ♾️
+    </p>
+
+    <span>
+        2ND MENSIVE • 2026
+    </span>
+
+    <div class="ending-line"></div>
+
+</section>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+              </html>
