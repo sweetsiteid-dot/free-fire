@@ -19,9 +19,10 @@
 
 <body>
 
-<!-- =========================
+
+<!-- =====================================================
      PASSWORD SCREEN
-========================= -->
+===================================================== -->
 
 <div id="passwordScreen">
 
@@ -47,6 +48,7 @@
                 for someone very special.
             </p>
 
+
             <div class="player-info">
 
                 <span>PLAYER</span>
@@ -57,6 +59,7 @@
 
             </div>
 
+
             <input
                 type="password"
                 id="passwordInput"
@@ -64,9 +67,11 @@
                 maxlength="4"
             >
 
+
             <button onclick="checkPassword()">
                 UNLOCK MISSION 🔥
             </button>
+
 
             <p class="hint">
                 Enter your secret 4-digit PIN
@@ -79,31 +84,123 @@
 </div>
 
 
-<!-- =========================
+
+<!-- =====================================================
      WEBSITE CONTENT
-========================= -->
+===================================================== -->
 
 <div id="websiteContent">
 
+
 <audio id="music" loop>
+
     <source
         src="assets/music/last-night-on-earth.mp3"
         type="audio/mpeg"
     >
+
 </audio>
 
 
-<!-- FIRE / PARTICLE CONTAINER -->
+
+<!-- =====================================================
+     PARTICLE CONTAINERS
+===================================================== -->
 
 <div id="hearts"></div>
+
 <div id="particles"></div>
 
 
-<!-- =========================
+
+<!-- =====================================================
+     FREE FIRE ELEMENTS
+===================================================== -->
+
+<div class="ff-elements">
+
+
+    <!-- FIRE -->
+
+    <img
+        src="assets/elements/fire.png"
+        class="ff-element ff-fire"
+        alt="Fire"
+    >
+
+
+    <!-- DIAMOND -->
+
+    <img
+        src="assets/elements/diamond.png"
+        class="ff-element ff-diamond"
+        alt="Diamond"
+    >
+
+
+    <!-- RANK -->
+
+    <img
+        src="assets/elements/rank.png"
+        class="ff-element ff-rank"
+        alt="Rank"
+    >
+
+
+    <!-- LOOT BOX -->
+
+    <img
+        src="assets/elements/lootbox.png"
+        class="ff-element ff-lootbox"
+        alt="Loot Box"
+    >
+
+
+    <!-- WEAPON -->
+
+    <img
+        src="assets/elements/weapon.png"
+        class="ff-element ff-weapon"
+        alt="Weapon"
+    >
+
+
+    <!-- CHARACTER -->
+
+    <img
+        src="assets/elements/character.png"
+        class="ff-element ff-character"
+        alt="Character"
+    >
+
+
+    <!-- EFFECT -->
+
+    <img
+        src="assets/elements/effect.png"
+        class="ff-element ff-effect"
+        alt="Effect"
+    >
+
+
+    <!-- PARACHUTE -->
+
+    <img
+        src="assets/elements/parachute.png"
+        class="ff-element ff-parachute"
+        alt="Parachute"
+    >
+
+</div>
+
+
+
+<!-- =====================================================
      GAME HUD
-========================= -->
+===================================================== -->
 
 <div class="game-hud">
+
 
     <div class="hud-player">
 
@@ -111,14 +208,22 @@
             K
         </div>
 
+
         <div>
 
-            <span>PLAYER</span>
+            <span>
+                PLAYER
+            </span>
 
-            <strong>Kala.</strong>
+            <strong>
+                Kala.
+            </strong>
+
 
             <div class="hp-bar">
+
                 <div class="hp-fill"></div>
+
             </div>
 
         </div>
@@ -126,71 +231,153 @@
     </div>
 
 
+
     <div class="hud-stats">
 
-        <div>
-            ❤️
-            <span>LOVE</span>
-            <strong>∞</strong>
-        </div>
 
         <div>
-            💎
-            <span>DIAMOND</span>
-            <strong>999+</strong>
+
+            ❤️
+
+            <span>
+                LOVE
+            </span>
+
+            <strong>
+                ∞
+            </strong>
+
         </div>
+
+
+        <div>
+
+            💎
+
+            <span>
+                DIAMOND
+            </span>
+
+            <strong>
+                999+
+            </strong>
+
+        </div>
+
 
     </div>
 
 </div>
 
 
-<!-- =========================
-     HERO / LOBBY
-========================= -->
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
+
     <div class="hero-overlay"></div>
+
+
+    <!-- HERO DECORATION -->
+
+
+    <img
+        src="assets/elements/parachute.png"
+        class="hero-element hero-parachute"
+        alt=""
+    >
+
+
+    <img
+        src="assets/elements/character.png"
+        class="hero-element hero-character"
+        alt=""
+    >
+
+
+    <img
+        src="assets/elements/fire.png"
+        class="hero-element hero-fire"
+        alt=""
+    >
+
+
+    <img
+        src="assets/elements/effect.png"
+        class="hero-element hero-effect"
+        alt=""
+    >
+
+
 
     <div class="hero-content">
 
+
         <div class="mission-tag">
+
             ⚡ SPECIAL EVENT ⚡
+
         </div>
 
+
         <p class="small-title">
+
             PLAYER KALA. × HAVEN.
+
         </p>
 
+
         <h1>
+
             HAPPY
-            <span>2ND MENSIVE</span>
+
+            <span>
+                2ND MENSIVE
+            </span>
+
         </h1>
 
+
         <h2>
+
             SAYANGKUU 🤍
+
         </h2>
+
 
         <p class="hero-text">
 
             Tiba-tiba udah 2 bulan aja kita.
+
             <br>
+
             Time really flies when I'm with you.
 
         </p>
 
-        <button onclick="openGift()" class="start-button">
+
+        <button
+            onclick="openGift()"
+            class="start-button"
+        >
 
             ▶ START MISSION
 
         </button>
 
+
         <div class="mission-status">
 
-            <span>MISSION STATUS</span>
+            <span>
+                MISSION STATUS
+            </span>
 
-            <strong>COMPLETED ❤️</strong>
+            <strong>
+                COMPLETED ❤️
+            </strong>
 
         </div>
 
@@ -199,13 +386,19 @@
 </section>
 
 
-<!-- =========================
-     MISSION CARD
-========================= -->
 
-<section id="giftSection" class="section">
+<!-- =====================================================
+     MISSION CARD
+===================================================== -->
+
+<section
+    id="giftSection"
+    class="section"
+>
+
 
     <div class="mission-card">
+
 
         <div class="card-header">
 
@@ -219,13 +412,20 @@
 
         </div>
 
+
         <div class="mission-icon">
+
             🔥
+
         </div>
 
+
         <h2>
+
             OUR 2 MONTHS
+
         </h2>
+
 
         <p>
 
@@ -247,9 +447,12 @@
 
         </p>
 
+
         <div class="mission-reward">
 
-            <span>REWARD UNLOCKED</span>
+            <span>
+                REWARD UNLOCKED
+            </span>
 
             <strong>
                 ❤️ FOREVER WITH YOU
@@ -262,11 +465,13 @@
 </section>
 
 
-<!-- =========================
-     PHOTO INVENTORY
-========================= -->
+
+<!-- =====================================================
+     INVENTORY / MEMORIES
+===================================================== -->
 
 <section class="section">
+
 
     <div class="section-heading">
 
@@ -285,6 +490,7 @@
     </div>
 
 
+
     <div class="photo-grid">
 
 
@@ -300,11 +506,19 @@
             >
 
             <div class="photo-info">
-                <span>MEMORY ITEM</span>
-                <strong>UNLOCKED ❤️</strong>
+
+                <span>
+                    MEMORY ITEM
+                </span>
+
+                <strong>
+                    UNLOCKED ❤️
+                </strong>
+
             </div>
 
         </div>
+
 
 
         <div class="photo-card">
@@ -319,11 +533,19 @@
             >
 
             <div class="photo-info">
-                <span>MEMORY ITEM</span>
-                <strong>UNLOCKED ❤️</strong>
+
+                <span>
+                    MEMORY ITEM
+                </span>
+
+                <strong>
+                    UNLOCKED ❤️
+                </strong>
+
             </div>
 
         </div>
+
 
 
         <div class="photo-card">
@@ -338,11 +560,19 @@
             >
 
             <div class="photo-info">
-                <span>MEMORY ITEM</span>
-                <strong>UNLOCKED ❤️</strong>
+
+                <span>
+                    MEMORY ITEM
+                </span>
+
+                <strong>
+                    UNLOCKED ❤️
+                </strong>
+
             </div>
 
         </div>
+
 
 
         <div class="photo-card">
@@ -357,11 +587,19 @@
             >
 
             <div class="photo-info">
-                <span>MEMORY ITEM</span>
-                <strong>UNLOCKED ❤️</strong>
+
+                <span>
+                    MEMORY ITEM
+                </span>
+
+                <strong>
+                    UNLOCKED ❤️
+                </strong>
+
             </div>
 
         </div>
+
 
 
         <div class="photo-card">
@@ -376,11 +614,19 @@
             >
 
             <div class="photo-info">
-                <span>MEMORY ITEM</span>
-                <strong>UNLOCKED ❤️</strong>
+
+                <span>
+                    MEMORY ITEM
+                </span>
+
+                <strong>
+                    UNLOCKED ❤️
+                </strong>
+
             </div>
 
         </div>
+
 
 
         <div class="photo-card">
@@ -395,11 +641,19 @@
             >
 
             <div class="photo-info">
-                <span>MEMORY ITEM</span>
-                <strong>UNLOCKED ❤️</strong>
+
+                <span>
+                    MEMORY ITEM
+                </span>
+
+                <strong>
+                    UNLOCKED ❤️
+                </strong>
+
             </div>
 
         </div>
+
 
 
         <div class="photo-card">
@@ -414,11 +668,19 @@
             >
 
             <div class="photo-info">
-                <span>MEMORY ITEM</span>
-                <strong>UNLOCKED ❤️</strong>
+
+                <span>
+                    MEMORY ITEM
+                </span>
+
+                <strong>
+                    UNLOCKED ❤️
+                </strong>
+
             </div>
 
         </div>
+
 
 
         <div class="photo-card">
@@ -433,22 +695,32 @@
             >
 
             <div class="photo-info">
-                <span>MEMORY ITEM</span>
-                <strong>UNLOCKED ❤️</strong>
+
+                <span>
+                    MEMORY ITEM
+                </span>
+
+                <strong>
+                    UNLOCKED ❤️
+                </strong>
+
             </div>
 
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- =========================
-     LOVE STATS
-========================= -->
+
+<!-- =====================================================
+     FREE FIRE PLAYER STATS
+===================================================== -->
 
 <section class="section">
+
 
     <div class="section-heading">
 
@@ -461,6 +733,7 @@
         </h2>
 
     </div>
+
 
 
     <div class="stats-grid">
@@ -484,6 +757,7 @@
         </div>
 
 
+
         <div class="stat-card">
 
             <div class="stat-icon">
@@ -502,6 +776,7 @@
         </div>
 
 
+
         <div class="stat-card">
 
             <div class="stat-icon">
@@ -518,6 +793,7 @@
             </p>
 
         </div>
+
 
 
         <div class="stat-card">
@@ -542,11 +818,13 @@
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      LETTER
-========================= -->
+===================================================== -->
 
 <section class="section">
+
 
     <div class="section-heading">
 
@@ -561,7 +839,9 @@
     </div>
 
 
+
     <div class="letter-box">
+
 
         <div class="letter-top">
 
@@ -576,7 +856,9 @@
         </div>
 
 
+
         <div class="letter-content">
+
 
             <h2>
                 Happy 2nd Mensive, Sayangkuu.
@@ -656,6 +938,7 @@
         </div>
 
 
+
         <div class="letter-signature">
 
             <span>
@@ -672,57 +955,117 @@
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      FINAL MISSION
-========================= -->
+===================================================== -->
 
 <section class="final-section">
 
+
+    <!-- FINAL ELEMENTS -->
+
+    <img
+        src="assets/elements/rank.png"
+        class="final-element final-rank"
+        alt=""
+    >
+
+
+    <img
+        src="assets/elements/diamond.png"
+        class="final-element final-diamond"
+        alt=""
+    >
+
+
+    <img
+        src="assets/elements/lootbox.png"
+        class="final-element final-lootbox"
+        alt=""
+    >
+
+
     <div class="victory-screen">
+
 
         <div class="victory-icon">
             🏆
         </div>
 
+
         <span>
             MISSION COMPLETED
         </span>
+
 
         <h2>
             HAPPY 2ND
         </h2>
 
+
         <h1>
             MENSIVE 🤍
         </h1>
+
 
         <p>
             Kala. × My beloved, Haven.
         </p>
 
+
+
         <div class="final-stats">
 
-            <div>
-                <span>LOVE</span>
-                <strong>∞</strong>
-            </div>
 
             <div>
-                <span>MONTHS</span>
-                <strong>02</strong>
+
+                <span>
+                    LOVE
+                </span>
+
+                <strong>
+                    ∞
+                </strong>
+
             </div>
 
+
             <div>
-                <span>STATUS</span>
-                <strong>US ❤️</strong>
+
+                <span>
+                    MONTHS
+                </span>
+
+                <strong>
+                    02
+                </strong>
+
             </div>
+
+
+            <div>
+
+                <span>
+                    STATUS
+                </span>
+
+                <strong>
+                    US ❤️
+                </strong>
+
+            </div>
+
 
         </div>
+
+
 
         <p class="final-message">
 
@@ -740,32 +1083,40 @@
 
         </p>
 
+
     </div>
 
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      ENDING
-========================= -->
+===================================================== -->
 
 <section class="ending">
 
+
     <div class="ending-line"></div>
+
 
     <h2>
         KALA. × HAVEN.
     </h2>
 
+
     <p>
         ONE TEAM. ONE LOVE. ♾️
     </p>
+
 
     <span>
         2ND MENSIVE • 2026
     </span>
 
+
     <div class="ending-line"></div>
+
 
 </section>
 
@@ -773,8 +1124,9 @@
 </div>
 
 
+
 <script src="script.js"></script>
 
 </body>
 
-              </html>
+     </html>
